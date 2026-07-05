@@ -233,7 +233,8 @@ const Register = () => {
                 disabled={isRedirecting}
                 onClick={() => {
                   setIsRedirecting(true);
-                  window.location.href = 'http://localhost:5050/api/auth/google';
+                  const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5050/api';
+                  window.location.href = `${apiUrl}/auth/google`;
                 }}
                 className="w-full flex items-center justify-center gap-3 px-6 py-2.5 bg-white border border-[#FFCCE5] rounded-full hover:bg-[#FFF5F9] hover:border-[#E8006F] text-[#1A1A1A] hover:shadow-pink-sm transition-all duration-200 cursor-pointer disabled:opacity-80"
               >
