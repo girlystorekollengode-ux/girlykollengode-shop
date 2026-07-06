@@ -156,6 +156,7 @@ const Login = () => {
           <button
             type="button"
             disabled={isRedirecting}
+            onClick={() => {
               setIsRedirecting(true);
               const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5050/api';
               window.location.href = `${apiUrl}/auth/google`;

@@ -152,10 +152,9 @@ const Profile = () => {
           <ChevronRight size={16} className="text-gray-400 group-hover:translate-x-0.5 transition-transform" />
         </Link>
 
-        {/* Admin Console Shortcut */}
         {user?.role === 'admin' && (
           <a
-            href="http://localhost:5174/admin"
+            href={`${import.meta.env.VITE_ADMIN_URL || 'http://localhost:5174'}/admin`}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3.5 py-4 px-2 hover:bg-primary-50/20 transition-all rounded-2xl group cursor-pointer"

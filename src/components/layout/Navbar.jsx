@@ -320,7 +320,7 @@ const Navbar = () => {
 
                       {user?.role === 'admin' && (
                         <a
-                          href="http://localhost:5174/admin"
+                          href={`${import.meta.env.VITE_ADMIN_URL || 'http://localhost:5174'}/admin`}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="flex items-center gap-2.5 px-4 py-2 text-xs font-semibold text-primary hover:bg-primary-50 transition-colors"
@@ -437,7 +437,7 @@ const Navbar = () => {
                 </Link>
                 {user?.role === 'admin' && (
                   <a
-                    href="http://localhost:5174/admin"
+                    href={`${import.meta.env.VITE_ADMIN_URL || 'http://localhost:5174'}/admin`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block px-3 py-2 rounded-xl text-sm font-bold text-primary hover:bg-primary-50 transition-colors"
