@@ -69,10 +69,9 @@ export const useAuthStore = create((set, get) => ({
     try {
       const data = await authService.login(email, password);
       if (data.success && data.accessToken) {
-        // Store access token in memory
-        setAccessToken(data.accessToken);
-
-        set({ user: data.user, isAuthenticated: true, loginStatus: 'success' });
+        // Store access token in memory & localStorage
+        get().setAuth(data.accessToken, data.user);
+        set({ loginStatus: 'success' });
         return { success: true };
       }
       set({ loginStatus: 'error' });
@@ -108,10 +107,8 @@ export const useAuthStore = create((set, get) => ({
     try {
       const data = await authService.verifyRegisterOtp(email, otp);
       if (data.success && data.accessToken) {
-        // Store access token in memory
-        setAccessToken(data.accessToken);
-
-        set({ user: data.user, isAuthenticated: true });
+        // Store access token in memory & localStorage
+        get().setAuth(data.accessToken, data.user);
         return { success: true };
       }
       return data;
